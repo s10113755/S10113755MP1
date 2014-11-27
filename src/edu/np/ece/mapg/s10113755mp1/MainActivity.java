@@ -29,14 +29,20 @@ public class MainActivity extends Activity {
 		public void onClick(View v) 
 		{
 			String str = etNumber.getText().toString();
-			int number =	Integer.parseInt(str);
-			if(number == myNumber)
-			{
+			try{
+				int number =	Integer.parseInt(str);
+				if(number == myNumber)
+				{
 				Toast.makeText(getBaseContext(), "Bingo! Correct number.", Toast.LENGTH_SHORT).show();
-			}
-			else
-			{
+				}
+				else
+				{
 				Toast.makeText(getBaseContext(), "Try again!", Toast.LENGTH_SHORT).show();
+				}
+			}
+			catch(NumberFormatException e)
+			{
+				Toast.makeText(getBaseContext(), "invalid input! enter a number", Toast.LENGTH_LONG).show();
 			}
 		}
 	};
